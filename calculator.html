@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A simple, modern daily calorie needs calculator." />
+  <title>Calorie Compass — Daily calorie calculator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="Shyam Sundar R home">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span>Shyam <span class="brand-accent">Sundar R</span></span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation"><a href="index.html">Home</a><a class="active" href="calculator.html">Calorie calculator</a><a class="nav-cta" href="index.html#contact">Work with me <span>↗</span></a></nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> YOUR DAILY GUIDE</p>
+          <h1 id="page-title">Find the calories<br /><em>that fit your life.</em></h1>
+          <p class="hero-text">A clear starting point for your goals. Tell us a little about yourself and we’ll estimate your daily energy needs.</p>
+        </div>
+        <div class="hero-orbit" aria-hidden="true">
+          <div class="orbit-ring orbit-ring-one"></div>
+          <div class="orbit-ring orbit-ring-two"></div>
+          <div class="orbit-core"><span>kcal</span><strong>✦</strong></div>
+          <span class="orbit-label orbit-label-top">BALANCE</span>
+          <span class="orbit-label orbit-label-bottom">YOUR WAY</span>
+        </div>
+      </section>
+
+      <section class="calculator-layout" aria-label="Calorie calculator">
+        <form class="card form-card" id="calculator-form">
+          <div class="card-heading">
+            <div>
+              <p class="section-kicker">STEP 01</p>
+              <h2>Your details</h2>
+            </div>
+            <span class="heading-icon" aria-hidden="true">↗</span>
+          </div>
+
+          <div class="field-grid">
+            <label class="field">
+              <span>Age <small>years</small></span>
+              <input id="age" name="age" type="number" min="15" max="100" placeholder="28" required />
+            </label>
+            <fieldset class="field gender-field">
+              <legend>Gender</legend>
+              <div class="segmented-control">
+                <label><input type="radio" name="gender" value="female" checked /><span>Female</span></label>
+                <label><input type="radio" name="gender" value="male" /><span>Male</span></label>
+              </div>
+            </fieldset>
+            <label class="field">
+              <span>Height <small>cm</small></span>
+              <input id="height" name="height" type="number" min="100" max="250" placeholder="170" required />
+            </label>
+            <label class="field">
+              <span>Weight <small>kg</small></span>
+              <input id="weight" name="weight" type="number" min="30" max="300" step="0.1" placeholder="68" required />
+            </label>
+          </div>
+
+          <div class="activity-section">
+            <div class="activity-title-row">
+              <div>
+                <p class="section-kicker">STEP 02</p>
+                <h2>How active are you?</h2>
+              </div>
+              <span class="activity-value" id="activity-value">Moderately active</span>
+            </div>
+            <label class="range-wrap" for="activity">
+              <input id="activity" name="activity" type="range" min="1" max="5" value="3" />
+              <span class="range-labels"><span>Mostly resting</span><span>Very active</span></span>
+            </label>
+            <p class="activity-description" id="activity-description">Exercise 3–5 days per week</p>
+          </div>
+
+          <button class="calculate-button" type="submit"><span>Calculate my calories</span><span class="button-arrow">→</span></button>
+          <p class="form-note">Estimates use the Mifflin–St Jeor equation and are for general guidance.</p>
+        </form>
+
+        <section class="card results-card" id="results" aria-live="polite">
+          <div class="card-heading results-heading">
+            <div>
+              <p class="section-kicker">YOUR DAILY TARGETS</p>
+              <h2>Make it work for you</h2>
+            </div>
+            <span class="result-badge">kcal / day</span>
+          </div>
+          <div class="result-list">
+            <article class="result-row maintenance">
+              <div class="result-icon">↔</div>
+              <div class="result-label"><strong>Maintain weight</strong><span>Keep your current pace</span></div>
+              <div class="result-number"><strong id="maintain-calories">—</strong><span>calories</span></div>
+            </article>
+            <article class="result-row loss">
+              <div class="result-icon">↓</div>
+              <div class="result-label"><strong>Lose weight</strong><span>Gentle, sustainable deficit</span></div>
+              <div class="result-number"><strong id="lose-calories">—</strong><span>calories</span></div>
+            </article>
+            <article class="result-row gain">
+              <div class="result-icon">↑</div>
+              <div class="result-label"><strong>Gain weight</strong><span>Support healthy progress</span></div>
+              <div class="result-number"><strong id="gain-calories">—</strong><span>calories</span></div>
+            </article>
+          </div>
+          <div class="result-tip"><span class="tip-icon">✦</span><p><strong>A little consistency goes a long way.</strong><br />Think of these numbers as a helpful range, not a rigid rule.</p></div>
+          <div class="result-footer"><span class="status-dot"></span><span id="result-status">Fill in your details to see your targets</span></div>
+        </section>
+      </section>
+    </main>
+
+    <footer><span>SHYAM SUNDAR R</span><span>Built for better everyday choices</span><span>Not medical advice</span></footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
